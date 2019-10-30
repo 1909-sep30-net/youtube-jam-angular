@@ -12,6 +12,7 @@ export class SentimentAnalysisService {
     getSentiment(videoId:string, maxComments:string) {
         return this.http.get<SentimentAnalysis>(
             'https://localhost:44345/sentiment',
-            { params: new HttpParams().set("videoId", videoId).set("maxComments", maxComments) });
+            { params: new HttpParams().set("videoId", videoId).set("maxComments", maxComments) }
+        );
     }
 }
