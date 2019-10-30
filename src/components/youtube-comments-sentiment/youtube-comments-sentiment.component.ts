@@ -19,7 +19,7 @@ export class YoutubeCommentsSentimentComponent {
         private sanitizer:DomSanitizer) {
     }
 
-    getCommentsSentiment(maxComments:string) {
+    getCommentsSentiment(maxComments:number) {
         this.display = "loading";
         let videoId:string = new URL(this.videoUrl).searchParams.get("v");
         this.safeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.sanitizer.sanitize(SecurityContext.URL, "https://www.youtube.com/embed/" + videoId));
