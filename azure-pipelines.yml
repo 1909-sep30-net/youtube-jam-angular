@@ -15,7 +15,10 @@ steps:
     SonarCloud: 'Project2'
     organization: '1909-sep30-net'
     scannerMode: 'CLI'
-    configMode: 'file'
+    configMode: 'manual'
+    cliProjectKey: 'YoutubeJam-Angular'
+    cliProjectName: 'YoutubeJam-Angular'
+    cliSources: '.'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
