@@ -14,16 +14,16 @@ steps:
   inputs:
     SonarCloud: 'Project2'
     organization: '1909-sep30-net'
-    scannerMode: 'Other'
+    scannerMode: 'CLI'
+    configMode: 'file'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
 - script: |
-    npm install -g @angular/cli
     npm install
-    ng build --prod
+    npx ng  build --prod
   displayName: 'npm install and build'
 
 - task: SonarCloudAnalyze@1
