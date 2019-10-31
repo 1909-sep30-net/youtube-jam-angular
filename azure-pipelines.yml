@@ -27,4 +27,5 @@ steps:
     appType: 'webApp'
     appName: 'YoutubeJam'
     package: 'dist/youtube-jam-angular'
+    deploymentMethod: runFromPackage
     
