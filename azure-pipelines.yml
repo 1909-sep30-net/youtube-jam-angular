@@ -14,8 +14,7 @@ steps:
   inputs:
     SonarCloud: 'Project2'
     organization: '1909-sep30-net'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    scannerMode: 'Other'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
