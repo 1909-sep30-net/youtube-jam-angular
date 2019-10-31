@@ -26,5 +26,5 @@ steps:
     azureSubscription: 'Free Trial(cb0d2e9c-c632-4eec-93d0-d1e5f9589605)'
     appType: 'webApp'
     appName: 'YoutubeJam'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
+    package: 'dist/youtube-jam-angular'
+    
