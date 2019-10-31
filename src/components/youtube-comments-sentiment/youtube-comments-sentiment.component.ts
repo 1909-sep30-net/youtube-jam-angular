@@ -9,6 +9,7 @@ import { SentimentAnalysisService } from '../../services/sentiment-analysis.serv
     styleUrls: ['./youtube-comments-sentiment.component.css']
 })
 export class YoutubeCommentsSentimentComponent {
+    display:string = "empty";
     videoUrl:string;
     safeEmbedUrl:SafeResourceUrl;
     sentimentAnalysis:SentimentAnalysis;
@@ -18,12 +19,16 @@ export class YoutubeCommentsSentimentComponent {
         private sanitizer:DomSanitizer) {
     }
 
-    getCommentsSentiment(maxComments:string) {
+    getCommentsSentiment(maxComments:number) {
+        this.display = "loading";
         let videoId:string = new URL(this.videoUrl).searchParams.get("v");
         this.safeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.sanitizer.sanitize(SecurityContext.URL, "https://www.youtube.com/embed/" + videoId));
-        let obs = this.sentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(result => {
-            console.log(result);
-            this.sentimentAnalysis = result;
-        }, error => console.error(error));
+        this.sentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(
+            result => {
+                this.sentimentAnalysis = result;
+                this.display = "analysis";
+            },
+            error => console.error(error)
+        );
     }
 }
