@@ -2,15 +2,15 @@
 <hr />
 <div class="input-group">
   <input [(ngModel)]="videoUrl" type="text" class="form-control" placeholder="Youtube Video URL" aria-label="Youtube Video URL" aria-describedby="Youtube Video URL">
-  <div class="input-group-append">
-    <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Analyze</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" (click)="getCommentsSentiment(1)">Maximum 1 Comment</a>
-      <a class="dropdown-item" (click)="getCommentsSentiment(5)">Maximum 5 Comments</a>
-      <a class="dropdown-item" (click)="getCommentsSentiment(10)">Maximum 10 Comments</a>
-      <a class="dropdown-item" (click)="getCommentsSentiment(25)">Maximum 25 Comments</a>
-      <a class="dropdown-item" (click)="getCommentsSentiment(50)">Maximum 50 Comments</a>
-      <a class="dropdown-item" (click)="getCommentsSentiment(100)">Maximum 100 Comments</a>
+  <div ngbDropdown class="input-group-append">
+    <button class="btn btn-danger" ngbDropdownToggle>Analyze</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem (click)="getCommentsSentiment(1)">Maximum 1 Comment</button>
+      <button ngbDropdownItem (click)="getCommentsSentiment(5)">Maximum 5 Comments</button>
+      <button ngbDropdownItem (click)="getCommentsSentiment(10)">Maximum 10 Comments</button>
+      <button ngbDropdownItem (click)="getCommentsSentiment(25)">Maximum 25 Comments</button>
+      <button ngbDropdownItem (click)="getCommentsSentiment(50)">Maximum 50 Comments</button>
+      <button ngbDropdownItem (click)="getCommentsSentiment(100)">Maximum 100 Comments</button>
     </div>
   </div>
 </div>
