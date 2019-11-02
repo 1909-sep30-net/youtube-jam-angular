@@ -6,24 +6,27 @@
 }
 
 .navbar-brand {
-  float:none;
+  line-height: 60px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
-.material-icons.md-24, .material-icons-outlined.md-24 {
-  font-size: 24px;
-  color: unset;
+.material-icons-outlined.md-light {
+  color: #e9e9e9;
+}
+
+.material-icons.md-24, .material-icons-outlined.small {
+  font-size: 28px;
   text-decoration: unset;
 }
 
-.material-icons.md-36, .material-icons-outlined.md-36 {
-  font-size: 36px;
-  color: unset;
+.material-icons.md-36, .material-icons-outlined.medium {
+  font-size: 38px;
   text-decoration: unset;
 }
 
-.material-icons.md-48, .material-icons-outlined.md-48 {
+.material-icons.md-48, .material-icons-outlined.large {
   font-size: 48px;
-  color: unset;
   text-decoration: unset;
 }
 
@@ -33,16 +36,16 @@ img.hoverable, i.material-icons, i.material-icons-outlined {
 
 .left-nav {
   float: left;
-  line-height: 80px;
+  line-height: 60px;
   margin-right: 20px;
 }
 
 .right-nav {
   float: right;
-  line-height: 80px;
+  line-height: 60px;
   margin-left: 20px;
 }
 
-:focus {
+a:focus, img:focus {
   outline: 0;
 }

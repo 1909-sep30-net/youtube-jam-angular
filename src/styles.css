@@ -1,4 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+body  {
+  background-color: #20262e;
+  color: #e2e2e2;
+}
+
+.form-control, .form-control:focus, .dropdown-menu, .dropdown-item,
+  select, .custom-select, .page-link:hover {
+  background-color: rgba(0,0,0,.25);
+  border: none;
+  color: #e2e2e2;
+}
+
+select option, .page-link {
+  background-color: #20262e;
+  border: none;
+  color: #e2e2e2;
+}
+
+.page-item.disabled .page-link {
+  background-color: #20262e;
+  border: none;
+}
+
+.dropdown-item:hover{
+  background-color: #bd2130;
+  border: none;
+  color: #e2e2e2;
+}
+
+.page-item.active .page-link {
+  border: none;
+  color: #e2e2e2;
+}
+
 div.center {
   display: flex;
   justify-content: center;

@@ -5,7 +5,8 @@ import { SentimentAnalysisService } from '../../services/sentiment-analysis.serv
 
 @Component({
     selector: 'youtube-comments-sentiment',
-    templateUrl: './youtube-comments-sentiment.component.html'
+    templateUrl: './youtube-comments-sentiment.component.html',
+    styleUrls: ['./youtube-comments-sentiment.component.css']
 })
 export class YoutubeCommentsSentimentComponent {
     display:string = "empty";

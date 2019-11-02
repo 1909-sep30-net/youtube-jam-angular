@@ -1,32 +1,27 @@
 <header>
-  <nav class="navbar navbar-light bg-white mb-5">
+  <nav class="navbar mb-5">
     <div class="navbar-header">
       <img
         class="hoverable"
         src="assets/logo.png"
-        width="80"
-        height="80"
+        width="60"
+        height="60"
         placement="bottom"
         ngbTooltip="Youtube Jam"
         [routerLink]="['/']">
       <a
-        class="material-icons-outlined md-36 left-nav"
+        class="material-icons-outlined md-light small left-nav"
         placement="bottom"
         ngbTooltip="Comments Sentiment"
         [routerLink]="['/youtube-comments-sentiment']">assessment</a>
       <a
-        class="material-icons-outlined md-36 right-nav"
+        class="material-icons-outlined md-light small right-nav"
         placement="bottom"
         ngbTooltip="Github"
         [href]="githubRepo"
         target="_blank">code</a>
       <a
-        class="material-icons-outlined md-36 right-nav"
-        placement="bottom"
-        ngbTooltip="Register"
-        [routerLink]="['/register']">person_add</a>
-      <a
-        class="material-icons-outlined md-36 right-nav"
+        class="material-icons-outlined md-light small right-nav"
         placement="bottom"
         ngbTooltip="Login"
         [routerLink]="['/login']">how_to_reg</a>
