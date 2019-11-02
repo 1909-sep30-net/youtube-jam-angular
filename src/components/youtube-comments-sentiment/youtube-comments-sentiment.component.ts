@@ -1,6 +1,6 @@
 import { Component, SecurityContext } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SentimentAnalysis } from '../../interfaces/sentiment-analysis';
+import { SentimentAnalysis } from '../../models/sentiment-analysis';
 import { SentimentAnalysisService } from '../../services/sentiment-analysis.service';
 
 @Component({
@@ -23,12 +23,12 @@ export class YoutubeCommentsSentimentComponent {
         this.display = "loading";
         let videoId:string = new URL(this.videoUrl).searchParams.get("v");
         this.safeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.sanitizer.sanitize(SecurityContext.URL, "https://www.youtube.com/embed/" + videoId));
-        this.sentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(
-            result => {
+        this.sentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(result => {
                 this.sentimentAnalysis = result;
                 this.display = "analysis";
-            },
-            error => console.error(error)
+            }, error => {
+                console.error(error)
+            }
         );
     }
 }

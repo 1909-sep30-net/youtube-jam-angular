@@ -6,13 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-    isExpanded:boolean = false;
-
-    collapse() {
-        this.isExpanded = false;
-    }
-
-    toggle() {
-        this.isExpanded = !this.isExpanded;
-    }
+    readonly githubRepo:string = "https://github.com/1909-sep30-net/youtube-jam-angular";
 }
