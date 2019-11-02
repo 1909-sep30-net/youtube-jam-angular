@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { SentimentAnalysis } from '../../interfaces/sentiment-analysis';
-import { YoutubeComment } from 'src/interfaces/youtube-comment';
+import { SentimentAnalysis } from '../../models/sentiment-analysis';
+import { YoutubeComment } from 'src/models/youtube-comment';
 
 @Component({
     selector: 'comments-sentiment-table',
