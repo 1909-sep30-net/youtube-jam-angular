@@ -42,3 +42,7 @@ i.material-icons, i.material-icons-outlined {
   line-height: 80px;
   margin-left: 20px;
 }
+
+:focus {
+  outline: 0;
+}
