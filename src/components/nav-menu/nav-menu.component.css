@@ -1,20 +1,44 @@
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-  }
-  
-  html {
-    font-size: 14px;
-  }
-  
-  @media (min-width: 768px) {
-    html {
-      font-size: 16px;
-    }
-  }
-  
-  .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-  }
-  
+.navbar-header {
+  text-align: center;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.navbar-brand {
+  float:none;
+}
+
+.material-icons.md-24, .material-icons-outlined.md-24 {
+  font-size: 24px;
+  color: unset;
+  text-decoration: unset;
+}
+
+.material-icons.md-36, .material-icons-outlined.md-36 {
+  font-size: 36px;
+  color: unset;
+  text-decoration: unset;
+}
+
+.material-icons.md-48, .material-icons-outlined.md-48 {
+  font-size: 48px;
+  color: unset;
+  text-decoration: unset;
+}
+
+i.material-icons, i.material-icons-outlined {
+  cursor: pointer;
+}
+
+.left-nav {
+  float: left;
+  line-height: 80px;
+  margin-right: 20px;
+}
+
+.right-nav {
+  float: right;
+  line-height: 80px;
+  margin-left: 20px;
+}

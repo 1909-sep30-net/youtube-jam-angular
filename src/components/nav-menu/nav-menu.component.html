@@ -1,25 +1,35 @@
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-      <div class="container">
-        <a class="navbar-brand" [routerLink]="['/']">YoutubeJam</a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target=".navbar-collapse"
-                aria-label="Toggle navigation"
-                [attr.aria-expanded]="isExpanded"
-                (click)="toggle()">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-             [ngClass]="{ show: isExpanded }">
-          <ul class="navbar-nav flex-grow">
-            <li class="nav-item" [routerLinkActive]="['link-active']">
-              <a class="nav-link text-dark" [routerLink]="['/youtube-comments-sentiment']">Youtube Comments Sentiment</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  
+  <nav class="navbar navbar-light bg-white mb-5">
+    <div class="navbar-header">
+      <img
+        src="assets/logo.png"
+        width="80"
+        height="80"
+        placement="bottom"
+        ngbTooltip="Youtube Jam"
+        [routerLink]="['/']">
+      <i
+        class="material-icons-outlined md-36 left-nav"
+        placement="bottom"
+        ngbTooltip="Comments Sentiment"
+        [routerLink]="['/youtube-comments-sentiment']">assessment</i>
+      <a
+        class="material-icons-outlined md-36 right-nav"
+        placement="bottom"
+        ngbTooltip="Github"
+        [href]="githubRepo"
+        target="_blank">code</a>
+      <i
+        class="material-icons-outlined md-36 right-nav"
+        placement="bottom"
+        ngbTooltip="Register"
+        [routerLink]="['/register']">person_add</i>
+      <i
+        class="material-icons-outlined md-36 right-nav"
+        placement="bottom"
+        ngbTooltip="Login"
+        [routerLink]="['/login']">how_to_reg</i>
+        
+    </div>
+  </nav>
+</header>
