@@ -3,13 +3,15 @@
   <thead>
     <tr>
       <th scope="col">Statistic</th>
+      <th scope="col">Analysis Date</th>
       <th scope="col">Result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Average Sentiment Score</td>
-      <td>{{sentimentAnalysis.averageSentimentScore}}</td>
+      <td>{{commentsSentimentAnalysis.analysisDate}}</td>
+      <td>{{commentsSentimentAnalysis.averageSentimentScore}}</td>
     </tr>
   </tbody>
 </table>
@@ -34,7 +36,7 @@
 </table>
 <div class="d-flex justify-content-between p-2">
   <ngb-pagination
-    [collectionSize]="sentimentAnalysis.commentList.length"
+    [collectionSize]="commentsSentimentAnalysis.commentList.length"
     [(page)]="page"
     [pageSize]="pageSize">
   </ngb-pagination>

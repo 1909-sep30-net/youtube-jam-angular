@@ -30,7 +30,7 @@
   text-decoration: unset;
 }
 
-img.hoverable, i.material-icons, i.material-icons-outlined {
+img.hoverable, .material-icons-outlined {
   cursor: pointer;
 }
 

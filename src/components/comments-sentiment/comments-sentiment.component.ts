@@ -1,21 +1,21 @@
 import { Component, SecurityContext } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SentimentAnalysis } from '../../models/sentiment-analysis';
-import { SentimentAnalysisService } from '../../services/sentiment-analysis.service';
+import { CommentsSentimentAnalysis } from '../../models/comments-sentiment-analysis';
+import { CommentsSentimentAnalysisService } from '../../services/comments-sentiment-analysis.service';
 
 @Component({
-    selector: 'youtube-comments-sentiment',
-    templateUrl: './youtube-comments-sentiment.component.html',
-    styleUrls: ['./youtube-comments-sentiment.component.css']
+    selector: 'comments-sentiment',
+    templateUrl: './comments-sentiment.component.html',
+    styleUrls: ['./comments-sentiment.component.css']
 })
-export class YoutubeCommentsSentimentComponent {
+export class CommentsSentimentComponent {
     display:string = "empty";
     videoUrl:string;
     safeEmbedUrl:SafeResourceUrl;
-    sentimentAnalysis:SentimentAnalysis;
+    commentsSentimentAnalysis:CommentsSentimentAnalysis;
 
     constructor(
-        private sentimentAnalysisService:SentimentAnalysisService,
+        private commentsSentimentAnalysisService:CommentsSentimentAnalysisService,
         private sanitizer:DomSanitizer) {
     }
 
@@ -23,11 +23,11 @@ export class YoutubeCommentsSentimentComponent {
         this.display = "loading";
         let videoId:string = new URL(this.videoUrl).searchParams.get("v");
         this.safeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.sanitizer.sanitize(SecurityContext.URL, "https://www.youtube.com/embed/" + videoId));
-        this.sentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(result => {
-                this.sentimentAnalysis = result;
+        this.commentsSentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(result => {
+                this.commentsSentimentAnalysis = result;
                 this.display = "analysis";
             }, error => {
-                console.error(error)
+                console.error(error);
             }
         );
     }

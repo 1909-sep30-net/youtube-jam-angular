@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'app-nav-menu',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
     readonly githubRepo:string = "https://github.com/1909-sep30-net/youtube-jam-angular";
+
+    constructor(public auth: AuthService) { }
 }

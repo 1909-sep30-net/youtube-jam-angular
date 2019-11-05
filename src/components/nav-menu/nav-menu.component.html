@@ -2,6 +2,7 @@
   <nav class="navbar mb-5">
     <div class="navbar-header">
       <img
+        alt="Youtube Jam"
         class="hoverable"
         src="assets/logo.png"
         width="60"
@@ -13,7 +14,12 @@
         class="material-icons-outlined md-light small left-nav"
         placement="bottom"
         ngbTooltip="Comments Sentiment"
-        [routerLink]="['/youtube-comments-sentiment']">assessment</a>
+        [routerLink]="['/comments-sentiment']">assessment</a>
+      <a
+        class="material-icons-outlined md-light small left-nav"
+        placement="bottom"
+        ngbTooltip="Channel Sentiment"
+        [routerLink]="['/channel-sentiment']">supervised_user_circle</a>
       <a
         class="material-icons-outlined md-light small right-nav"
         placement="bottom"
@@ -21,11 +27,23 @@
         [href]="githubRepo"
         target="_blank">code</a>
       <a
+        *ngIf="!auth.loggedIn"
         class="material-icons-outlined md-light small right-nav"
         placement="bottom"
         ngbTooltip="Login"
         [routerLink]="['/login']">how_to_reg</a>
-        
+      <a
+        *ngIf="auth.loggedIn"
+        class="material-icons-outlined md-light small right-nav"
+        placement="bottom"
+        ngbTooltip="Logout"
+        (click)="auth.logout()">input</a>
+      <a
+        *ngIf="auth.loggedIn"
+        class="material-icons-outlined md-light small right-nav"
+        placement="bottom"
+        ngbTooltip="Profile"
+        [routerLink]="['/profile']">person_pin</a>
     </div>
   </nav>
 </header>
