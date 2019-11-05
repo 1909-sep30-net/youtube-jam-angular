@@ -8,20 +8,28 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 import { HomeComponent } from '../home/home.component';
-import { YoutubeCommentsSentimentComponent } from '../youtube-comments-sentiment/youtube-comments-sentiment.component';
+import { CommentsSentimentComponent } from '../comments-sentiment/comments-sentiment.component';
 import { CommentsSentimentTableComponent } from '../comments-sentiment-table/comments-sentiment-table.component';
+import { ChannelSentimentComponent } from '../channel-sentiment/channel-sentiment.component';
+import { ChannelSentimentTableComponent } from '../channel-sentiment-table/channel-sentiment-table.component';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { ProfileComponent } from '../profile/profile.component';
+
+import { AuthGuard } from '../../guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    YoutubeCommentsSentimentComponent,
+    CommentsSentimentComponent,
     CommentsSentimentTableComponent,
+    ChannelSentimentComponent,
+    ChannelSentimentTableComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +37,12 @@ import { RegisterComponent } from '../register/register.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'youtube-comments-sentiment', component: YoutubeCommentsSentimentComponent },
+      { path: 'comments-sentiment', component: CommentsSentimentComponent },
+      { path: 'channel-sentiment', component: ChannelSentimentComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
+      
     ]),
     NgbModule
   ],
