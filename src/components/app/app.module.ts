@@ -12,7 +12,6 @@ import { CommentsSentimentComponent } from '../comments-sentiment/comments-senti
 import { CommentsSentimentTableComponent } from '../comments-sentiment-table/comments-sentiment-table.component';
 import { ChannelSentimentComponent } from '../channel-sentiment/channel-sentiment.component';
 import { ChannelSentimentTableComponent } from '../channel-sentiment-table/channel-sentiment-table.component';
-import { RegisterComponent } from '../register/register.component';
 import { ProfileComponent } from '../profile/profile.component';
 
 import { AuthGuard } from '../../guards/auth.guard';
@@ -26,7 +25,6 @@ import { AuthGuard } from '../../guards/auth.guard';
     CommentsSentimentTableComponent,
     ChannelSentimentComponent,
     ChannelSentimentTableComponent,
-    RegisterComponent,
     ProfileComponent
   ],
   imports: [
@@ -37,7 +35,6 @@ import { AuthGuard } from '../../guards/auth.guard';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'comments-sentiment', component: CommentsSentimentComponent },
       { path: 'channel-sentiment', component: ChannelSentimentComponent },
-      { path: 'register', component: RegisterComponent },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
       
     ]),

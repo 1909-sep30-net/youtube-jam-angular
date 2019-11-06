@@ -2,19 +2,23 @@
   <div *ngIf="auth.userProfile$ | async as profile" id="profile">
     <img id="profilePicture" [src]="profile.picture" [alt]="profile.name">
     <div class="profileItem">
+      <i class="material-icons-outlined md-light">child_care</i>
       {{profile.name}}
     </div>
     <div class="profileItem">
+      <i class="material-icons-outlined md-light">local_post_office</i>
       {{profile.email}}
     </div>
     <div class="profileItem">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Channel Name" aria-label="Channel Name" aria-describedby="Channel Name">
+        <div class="input-group-prepend">
+          <i class="material-icons-outlined md-light">sports_kabaddi</i>
+        </div>
+        <input #channelName type="text" class="form-control" placeholder="Channel Name" aria-label="Channel Name" aria-describedby="Channel Name">
         <div class="input-group-append">
-          <button class="btn btn-danger" type="button">Update</button>
+          <button class="btn btn-danger" type="button" (click)="updateUser(profile.given_name, profile.family_name, profile.email, channelName.value)">Update</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-
