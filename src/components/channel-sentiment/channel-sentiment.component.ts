@@ -1,4 +1,4 @@
-import { Component, SecurityContext } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChannelSentimentAnalysis } from '../../models/channel-sentiment-analysis';
 import { ChannelSentimentAnalysisService } from '../../services/channel-sentiment-analysis.service';
 
