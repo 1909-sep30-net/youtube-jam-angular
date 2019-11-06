@@ -1,1 +1,20 @@
-<code *ngIf="auth.userProfile$ | async as profile">{{ profile | json }}</code>
+<div id="profileContainer">
+  <div *ngIf="auth.userProfile$ | async as profile" id="profile">
+    <img id="profilePicture" [src]="profile.picture" [alt]="profile.name">
+    <div class="profileItem">
+      {{profile.name}}
+    </div>
+    <div class="profileItem">
+      {{profile.email}}
+    </div>
+    <div class="profileItem">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Channel Name" aria-label="Channel Name" aria-describedby="Channel Name">
+        <div class="input-group-append">
+          <button class="btn btn-danger" type="button">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

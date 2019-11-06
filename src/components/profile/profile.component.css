@@ -1,0 +1,19 @@
+#profileContainer {
+  text-align: center;
+}
+
+#profile {
+  display: inline-block;
+  width: 250px;
+  text-align: center;
+}
+
+#profilePicture {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-bottom: 50px;
+}
+
+div.profileItem {
+  margin-bottom: 20px;
+}
