@@ -18,15 +18,15 @@ export class ProfileComponent {
 
   updateUser(firstName:string, lastName:string, email:string, username:string) {
     if (username === '') {
-      this.toastsService.show('Client Side Error', 'Channel name is empty');
+      this.toastsService.show('Client Side Error', 'Channel Name is Empty');
     }
     else {
-      this.toastsService.show('User Update Processing...', 'Sending user update request to server');
+      this.toastsService.show('Processing...', 'Processing User Update Request');
       const user:User = new User(firstName, lastName, email, username);
       this.userService.updateUser(user).subscribe(result => {
-          console.log(result);
+          this.toastsService.show('Server Side Success', 'User updated');
       }, error => {
-          console.error(error);
+          this.toastsService.show('Server Side Error', error);
       });
     }
   }
