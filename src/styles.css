@@ -51,3 +51,12 @@ iframe {
   color: black;
   font-weight: bold;
 }
+
+.toast-header, .toast-body {
+  background-color: #20262e;
+  color: #e2e2e2;
+}
+
+.close, .close:hover {
+  color: #e2e2e2;
+}

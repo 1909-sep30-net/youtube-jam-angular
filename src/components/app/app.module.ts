@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { ToastsComponent } from '../toasts/toasts.component';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 import { HomeComponent } from '../home/home.component';
 import { CommentsSentimentComponent } from '../comments-sentiment/comments-sentiment.component';
@@ -19,6 +20,7 @@ import { AuthGuard } from '../../guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
+    ToastsComponent,
     NavMenuComponent,
     HomeComponent,
     CommentsSentimentComponent,
