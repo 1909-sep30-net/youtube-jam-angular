@@ -7,12 +7,12 @@ import { User } from '../models/user';
     providedIn: 'root'
 })
 export class UserService {
-    userEndpoint:string = environment.apiUrl + 'creator';
+    userEndpoint:string = environment.apiUrl + 'Creator';
 
     constructor(private http:HttpClient) {
     }
 
-    createUser(user:User) {
+    updateUser(user:User) {
         return this.http.post(
             this.userEndpoint,
             user
