@@ -9,9 +9,9 @@
   </thead>
   <tbody>
     <tr>
-      <td>Average Sentiment Score</td>
+      <th scope="row">Average Sentiment Score</th>
       <td>{{commentsSentimentAnalysis.analysisDate}}</td>
-      <td>{{commentsSentimentAnalysis.averageSentimentScore}}</td>
+      <td><ngb-progressbar type="{{commentsSentimentAnalysisProgressBar.type}}" [value]="commentsSentimentAnalysisProgressBar.value" [striped]="true">{{commentsSentimentAnalysisProgressBar.value}}%</ngb-progressbar></td>
     </tr>
   </tbody>
 </table>
@@ -30,7 +30,7 @@
       <th scope="row">{{comment.id}}</th>
       <td>{{comment.authorName}}</td>
       <td>{{comment.content}}</td>
-      <td>{{comment.sentimentScore}}</td>
+      <td><ngb-progressbar type="{{comment.type}}" [value]="comment.roundedSentimentScore" [striped]="true">{{comment.roundedSentimentScore}}%</ngb-progressbar></td>
     </tr>
   </tbody>
 </table>

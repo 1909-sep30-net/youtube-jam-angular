@@ -41,3 +41,13 @@ div.center {
 iframe {
   border: 0
 }
+
+.progress {
+  width: 200px;
+  height: 30px;
+}
+
+.progress-bar {
+  color: black;
+  font-weight: bold;
+}

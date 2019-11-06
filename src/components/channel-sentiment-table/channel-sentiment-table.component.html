@@ -9,9 +9,9 @@
   </thead>
   <tbody>
     <tr>
-      <td>Average Sentiment Score</td>
+      <th scope="row">Average Sentiment Score</th>
       <td>{{channelSentimentAnalysis.analysisDate}}</td>
-      <td>{{channelSentimentAnalysis.averageSentiment}}</td>
+      <td><ngb-progressbar type="{{channelSentimentAnalysisProgressBar.type}}" [value]="channelSentimentAnalysisProgressBar.value" [striped]="true">{{channelSentimentAnalysisProgressBar.value}}%</ngb-progressbar></td>
     </tr>
   </tbody>
 </table>
@@ -25,10 +25,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let video of channelSentimentAnalysis.userVideos; let i = index">
-      <th scope="row">{{i + 1}}</th>
+    <tr *ngFor="let video of videoList">
+      <th scope="row">{{video.id}}</th>
       <td><a href="https://youtube.com/watch?v={{video.videoURL}}">{{video.videoTitle}}</a></td>
-      <td>{{video.sentimentScore}}</td>
+      <td><ngb-progressbar type="{{video.type}}" [value]="video.roundedSentimentScore" [striped]="true">{{video.roundedSentimentScore}}%</ngb-progressbar></td>
     </tr>
   </tbody>
 </table>

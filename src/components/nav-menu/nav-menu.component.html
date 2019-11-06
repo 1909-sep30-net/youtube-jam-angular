@@ -31,7 +31,7 @@
         class="material-icons-outlined md-light small right-nav"
         placement="bottom"
         ngbTooltip="Login"
-        [routerLink]="['/login']">how_to_reg</a>
+        (click)="auth.login()">how_to_reg</a>
       <a
         *ngIf="auth.loggedIn"
         class="material-icons-outlined md-light small right-nav"
