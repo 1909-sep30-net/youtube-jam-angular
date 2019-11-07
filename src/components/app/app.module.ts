@@ -36,7 +36,7 @@ import { AuthGuard } from '../../guards/auth.guard';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'comments-sentiment', component: CommentsSentimentComponent },
-      { path: 'channel-sentiment', component: ChannelSentimentComponent },
+      { path: 'channel-sentiment', component: ChannelSentimentComponent, canActivate: [AuthGuard] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
       
     ]),

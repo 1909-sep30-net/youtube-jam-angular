@@ -16,6 +16,7 @@
         ngbTooltip="Comments Sentiment"
         [routerLink]="['/comments-sentiment']">assessment</a>
       <a
+        *ngIf="auth.loggedIn"
         class="material-icons-outlined md-light small left-nav"
         placement="bottom"
         ngbTooltip="Channel Sentiment"
