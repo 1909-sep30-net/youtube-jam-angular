@@ -10,8 +10,8 @@
   <tbody>
     <tr>
       <th scope="row">Average Sentiment Score</th>
-      <td>{{commentsSentimentAnalysis.analysisDate | date:'EEEE, MMMM d, y, h:mm:ss a'}}</td>
-      <td><ngb-progressbar type="{{commentsSentimentAnalysisProgressBar.type}}" [value]="commentsSentimentAnalysisProgressBar.value" [striped]="true">{{commentsSentimentAnalysisProgressBar.value}}%</ngb-progressbar></td>
+      <td class="centerAlign">{{commentsSentimentAnalysis.analysisDate | date:'EEEE, MMMM d, y, h:mm:ss a'}}</td>
+      <td class="centerAlign"><ngb-progressbar type="{{commentsSentimentAnalysisProgressBar.type}}" [value]="commentsSentimentAnalysisProgressBar.value" [striped]="true">{{commentsSentimentAnalysisProgressBar.value}}%</ngb-progressbar></td>
     </tr>
   </tbody>
 </table>
@@ -28,9 +28,9 @@
   <tbody>
     <tr *ngFor="let comment of commentList">
       <th scope="row">{{comment.id}}</th>
-      <td>{{comment.authorName}}</td>
+      <td class="centerAlign">{{comment.authorName}}</td>
       <td>{{comment.content}}</td>
-      <td><ngb-progressbar type="{{comment.type}}" [value]="comment.roundedSentimentScore" [striped]="true">{{comment.roundedSentimentScore}}%</ngb-progressbar></td>
+      <td class="centerAlign"><ngb-progressbar type="{{comment.type}}" [value]="comment.roundedSentimentScore" [striped]="true">{{comment.roundedSentimentScore}}%</ngb-progressbar></td>
     </tr>
   </tbody>
 </table>

@@ -4,6 +4,14 @@ body  {
   color: #e2e2e2;
 }
 
+a {
+  color: #ff6877;
+}
+
+th, td.centerAlign {
+  text-align: center;
+}
+
 .form-control, .form-control:focus, .dropdown-menu, .dropdown-item,
   select, .custom-select, .page-link:hover {
   background-color: rgba(0,0,0,.25);
@@ -45,6 +53,8 @@ iframe {
 .progress {
   width: 200px;
   height: 30px;
+  background-color: #464b50;
+  margin: auto;
 }
 
 .progress-bar {
@@ -52,11 +62,9 @@ iframe {
   font-weight: bold;
 }
 
-.toast-header, .toast-body {
-  background-color: #20262e;
+.toast.show, .toast-header, .close, .close:hover {
+  background-color: #282f3a;
   color: #e2e2e2;
-}
-
-.close, .close:hover {
-  color: #e2e2e2;
+  border-radius: 20px;
+  border: none;
 }
