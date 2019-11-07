@@ -3,7 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommentsSentimentAnalysis } from '../../models/comments-sentiment-analysis';
 import { CommentsSentimentAnalysisService } from '../../services/comments-sentiment-analysis.service';
 import { ToastsService } from '../../services/toasts.service';
-import { UrlValidatorService } from '../../services/url-validator.service';
+import { YoutubeUrlService } from '../../services/youtube-url.service';
 
 @Component({
     selector: 'comments-sentiment',
@@ -20,14 +20,14 @@ export class CommentsSentimentComponent {
         private commentsSentimentAnalysisService:CommentsSentimentAnalysisService,
         private sanitizer:DomSanitizer,
         private toastsService:ToastsService,
-        private urlValidatorService:UrlValidatorService) {
+        private youtubeUrlService:YoutubeUrlService) {
     }
 
     getCommentsSentiment(maxComments:number) {
-        if (this.urlValidatorService.validYoutubeUrl(this.videoUrl)) {
+        const videoId:string|null = this.youtubeUrlService.parseYoutubeVideoId(this.videoUrl);
+        if (videoId !== null) {
             this.toastsService.show('Processing...', 'Processing Youtube Video Sentiment Request');
             this.display = "loading";
-            let videoId:string = new URL(this.videoUrl).searchParams.get("v");
             this.safeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.sanitizer.sanitize(SecurityContext.URL, "https://www.youtube.com/embed/" + videoId));
             this.commentsSentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(result => {
                     this.toastsService.show('Server Side Success: getSentiment', 'Youtube Video Sentiment Succeeded');
@@ -38,7 +38,7 @@ export class CommentsSentimentComponent {
                 }
             );
         } else {
-            this.toastsService.show('Client Side Error', 'Invalid Youtube Video URL');
+            this.toastsService.show('Client Side Error', 'Cannot Parse Video ID');
         }
     }
 }
