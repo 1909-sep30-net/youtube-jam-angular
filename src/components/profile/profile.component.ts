@@ -10,13 +10,13 @@ import { ToastsService } from '../../services/toasts.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements AfterViewInit {
-  channelName:string = "";
+  channelName: string = "";
 
   constructor(
     public authService: AuthService,
-    private userService:UserService,
-    private toastsService:ToastsService
-  ) {}
+    private userService: UserService,
+    private toastsService: ToastsService
+  ) { }
 
   ngAfterViewInit() {
     this.toastsService.show('Processing...', 'Processing Auth0 Profile');
@@ -33,13 +33,13 @@ export class ProfileComponent implements AfterViewInit {
     });
   }
 
-  updateUser(firstName:string, lastName:string, email:string) {
+  updateUser(firstName: string, lastName: string, email: string) {
     if (this.channelName.replace(/\s/g, "") === '') {
       this.toastsService.show('Client Side Error', 'Channel Name is Empty');
     }
     else {
       this.toastsService.show('Processing...', 'Processing User Update Request');
-      const user:User = new User(firstName, lastName, email, this.channelName);
+      const user: User = new User(firstName, lastName, email, this.channelName);
       this.userService.updateUser(user).subscribe(result => {
         this.toastsService.show('Server Side Success: updateUser', 'User Updated');
       }, error => {

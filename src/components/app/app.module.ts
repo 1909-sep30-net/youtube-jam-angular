@@ -38,7 +38,6 @@ import { AuthGuard } from '../../guards/auth.guard';
       { path: 'comments-sentiment', component: CommentsSentimentComponent },
       { path: 'channel-sentiment', component: ChannelSentimentComponent, canActivate: [AuthGuard] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
-      
     ]),
     NgbModule
   ],

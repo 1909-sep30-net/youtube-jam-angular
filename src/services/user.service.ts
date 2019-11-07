@@ -5,23 +5,23 @@ import { User } from '../models/user';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class UserService {
-    userEndpoint:string = environment.apiUrl + 'Creator';
+  userEndpoint: string = environment.apiUrl + 'Creator';
 
-    constructor(private http:HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    getUser(email:string):Observable<User> {
-        return this.http.get<User>(
-            this.userEndpoint + '/' + email
-        );
-    }
+  getUser(email: string): Observable<User> {
+    return this.http.get<User>(
+      this.userEndpoint + '/' + email
+    );
+  }
 
-    updateUser(user:User):Observable<any> {
-        return this.http.post(
-            this.userEndpoint,
-            user
-        );
-    }
+  updateUser(user: User): Observable<any> {
+    return this.http.post(
+      this.userEndpoint,
+      user
+    );
+  }
 }
