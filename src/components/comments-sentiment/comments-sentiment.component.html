@@ -14,6 +14,13 @@
     </div>
   </div>
 </div>
+<div>
+  <ol>
+    <li *ngFor="let youtubeUrl of videoSentimentHistory.youtubeUrls">
+      {{youtubeUrl}}
+    </li>
+  </ol>
+</div>
 <ng-template [ngIf]="display === 'analysis'">
   <div class="center">
     <h2>Youtube Video</h2>
