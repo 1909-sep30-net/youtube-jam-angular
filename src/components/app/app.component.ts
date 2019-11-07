@@ -5,8 +5,10 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit{
-  constructor(private auth:AuthService) {}
+export class AppComponent implements OnInit {
+  constructor(
+    private auth:AuthService
+  ) {}
 
   ngOnInit() {
     this.auth.localAuthSetup();
