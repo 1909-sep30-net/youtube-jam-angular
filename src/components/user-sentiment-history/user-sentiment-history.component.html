@@ -1,0 +1,24 @@
+<div *ngIf="userSentimentHistory">
+  <div class="center">
+    <h2>User Sentiment History</h2>
+  </div>
+  <table class="table table-dark">
+    <caption>User Sentiment History</caption>
+    <thead>
+      <tr>
+        <th scope="col">Analysis Date</th>
+        <th scope="col">URL</th>
+        <th scope="col">Analysis Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sentiment of parsedUserSentimentHistory">
+        <td class="centerAlign">{{sentiment.analysisDate | date:'EEEE, MMMM d, y, h:mm:ss a'}}</td>
+        <td class="centerAlign"><a [href]="sentiment.youtubeUrl" target="_blank">{{sentiment.youtubeUrl}}</a></td>
+        <td class="centerAlign">
+          <ngb-progressbar type="{{sentiment.type}}" [value]="sentiment.roundedSentimentScore" [striped]="true">{{sentiment.roundedSentimentScore}}%</ngb-progressbar>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

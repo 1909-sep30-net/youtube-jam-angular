@@ -29,7 +29,7 @@
   <tbody>
     <tr *ngFor="let video of videoList">
       <th scope="row">{{video.id}}</th>
-      <td><a href="https://youtube.com/watch?v={{video.videoURL}}">{{video.videoTitle}}</a></td>
+      <td><a href="https://youtube.com/watch?v={{video.videoURL}}" target="_blank">{{video.videoTitle}}</a></td>
       <td class="centerAlign">
         <ngb-progressbar type="{{video.type}}" [value]="video.roundedSentimentScore" [striped]="true">{{video.roundedSentimentScore}}%</ngb-progressbar>
       </td>

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { VideoSentimentHistory } from '../models/video-sentiment-history';
 import { CommentsSentimentAnalysis } from '../models/comments-sentiment-analysis';
 import { UserSentiment } from '../models/user-sentiment';
 import { User } from '../models/user';
@@ -25,15 +24,15 @@ export class SentimentHistoryService {
       videoURL: sentiment.videoURL,
       analysisDate: sentiment.analysisDate,
       commentList: sentiment.commentList
-    }
+    };
     return this.http.post<any>(
       this.userSentimentHistoryEndpoint,
       userSentiment
     );
   }
 
-  getUserSentimentHistory(email: string): Observable<VideoSentimentHistory> {
-    return this.http.get<VideoSentimentHistory>(
+  getUserSentimentHistory(email: string): Observable<CommentsSentimentAnalysis[]> {
+    return this.http.get<CommentsSentimentAnalysis[]>(
       this.userSentimentHistoryEndpoint,
       { params: new HttpParams().set("email", email) }
     );

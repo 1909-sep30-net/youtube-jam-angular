@@ -10,10 +10,12 @@ import { ToastsComponent } from '../toasts/toasts.component';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 import { HomeComponent } from '../home/home.component';
 import { CommentsSentimentComponent } from '../comments-sentiment/comments-sentiment.component';
+import { UserSentimentHistoryComponent } from '../user-sentiment-history/user-sentiment-history.component';
 import { CommentsSentimentTableComponent } from '../comments-sentiment-table/comments-sentiment-table.component';
 import { ChannelSentimentComponent } from '../channel-sentiment/channel-sentiment.component';
 import { ChannelSentimentTableComponent } from '../channel-sentiment-table/channel-sentiment-table.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { Loading } from '../loading/loading.component';
 
 import { AuthGuard } from '../../guards/auth.guard';
 
@@ -24,10 +26,12 @@ import { AuthGuard } from '../../guards/auth.guard';
     NavMenuComponent,
     HomeComponent,
     CommentsSentimentComponent,
+    UserSentimentHistoryComponent,
     CommentsSentimentTableComponent,
     ChannelSentimentComponent,
     ChannelSentimentTableComponent,
-    ProfileComponent
+    ProfileComponent,
+    Loading
   ],
   imports: [
     BrowserModule,

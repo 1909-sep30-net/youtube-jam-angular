@@ -17,6 +17,10 @@ export class YoutubeUrlService {
     return null;
   }
 
+  generateYoutubeUrl(videoId: string): string {
+    return 'https://www.youtube.com/watch?v=' + videoId;
+  }
+
   validYoutubeUrl(url: URL): boolean {
     return ((url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com')
       && url.pathname === '/watch'

@@ -5,8 +5,7 @@ import { ProgressBar } from 'src/models/progress-bar';
 
 @Component({
   selector: 'comments-sentiment-table',
-  templateUrl: './comments-sentiment-table.component.html',
-  styleUrls: ['./comments-sentiment-table.component.css']
+  templateUrl: './comments-sentiment-table.component.html'
 })
 export class CommentsSentimentTableComponent {
   @Input() commentsSentimentAnalysis: CommentsSentimentAnalysis;
@@ -15,13 +14,15 @@ export class CommentsSentimentTableComponent {
 
   get commentList(): YoutubeComment[] {
     return this.commentsSentimentAnalysis.commentList
-      .map((comment, i) => (
-        {
+      .map((comment, i) => {
+        const roundedScore = Math.round(comment.sentimentScore * 100);
+        return {
           id: i + 1,
-          roundedSentimentScore: Math.round(comment.sentimentScore * 100),
-          type: Math.round(comment.sentimentScore * 100) < 33 ? 'danger' : Math.round(comment.sentimentScore * 100) < 67 ? 'warning' : 'success',
+          roundedSentimentScore: roundedScore,
+          type: roundedScore < 33 ? 'danger' : roundedScore < 67 ? 'warning' : 'success',
           ...comment
-        }))
+        }
+      })
       .slice(
         (this.page - 1) * this.pageSize,
         (this.page - 1) * this.pageSize + this.pageSize);

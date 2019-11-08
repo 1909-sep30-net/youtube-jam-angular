@@ -6,21 +6,15 @@
   <div ngbDropdown class="input-group-append">
     <button class="btn btn-danger" ngbDropdownToggle>Analyze</button>
     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-      <button ngbDropdownItem (click)="getCommentsSentiment(5)">Maximum 5 Comments</button>
-      <button ngbDropdownItem (click)="getCommentsSentiment(10)">Maximum 10 Comments</button>
-      <button ngbDropdownItem (click)="getCommentsSentiment(25)">Maximum 25 Comments</button>
-      <button ngbDropdownItem (click)="getCommentsSentiment(50)">Maximum 50 Comments</button>
-      <button ngbDropdownItem (click)="getCommentsSentiment(100)">Maximum 100 Comments</button>
+      <button ngbDropdownItem (click)="loadCommentsSentiment(5)">Maximum 5 Comments</button>
+      <button ngbDropdownItem (click)="loadCommentsSentiment(10)">Maximum 10 Comments</button>
+      <button ngbDropdownItem (click)="loadCommentsSentiment(25)">Maximum 25 Comments</button>
+      <button ngbDropdownItem (click)="loadCommentsSentiment(50)">Maximum 50 Comments</button>
+      <button ngbDropdownItem (click)="loadCommentsSentiment(100)">Maximum 100 Comments</button>
     </div>
   </div>
 </div>
-<div>
-  <ol>
-    <li *ngFor="let youtubeUrl of videoSentimentHistory.youtubeUrls">
-      {{youtubeUrl}}
-    </li>
-  </ol>
-</div>
+<user-sentiment-history [userSentimentHistory]="userSentimentHistory"></user-sentiment-history>
 <ng-template [ngIf]="display === 'analysis'">
   <div class="center">
     <h2>Youtube Video</h2>
@@ -34,10 +28,4 @@
     <comments-sentiment-table [commentsSentimentAnalysis]="commentsSentimentAnalysis"></comments-sentiment-table>
   </div>
 </ng-template>
-<ng-template [ngIf]="display === 'loading'">
-  <div class="center">
-    <div class="spinner-border text-danger" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-</ng-template>
+<loading [display]="display === 'loading'"></loading>

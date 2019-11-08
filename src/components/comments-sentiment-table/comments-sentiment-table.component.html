@@ -41,7 +41,6 @@
 <div class="d-flex justify-content-between p-2">
   <ngb-pagination [collectionSize]="commentsSentimentAnalysis.commentList.length" [(page)]="page" [pageSize]="pageSize">
   </ngb-pagination>
-
   <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
     <option [ngValue]="5">5 comments per page</option>
     <option [ngValue]="10">10 comments per page</option>

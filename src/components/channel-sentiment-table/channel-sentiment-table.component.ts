@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ChannelSentimentAnalysis } from '../../models/channel-sentiment-analysis'
-import { VideoSentimentAnalysis } from '../../models/video-sentiment-analysis';
+import { VideoSentimentAnalysisProgressBar } from '../../models/video-sentiment-analysis-progress-bar';
 import { ProgressBar } from 'src/models/progress-bar';
 
 @Component({
@@ -10,15 +10,17 @@ import { ProgressBar } from 'src/models/progress-bar';
 export class ChannelSentimentTableComponent {
   @Input() channelSentimentAnalysis: ChannelSentimentAnalysis;
 
-  get videoList(): VideoSentimentAnalysis[] {
+  get videoList(): VideoSentimentAnalysisProgressBar[] {
     return this.channelSentimentAnalysis.userVideos
-      .map((video, i) => (
-        {
+      .map((video, i) => {
+        const roundedScore = Math.round(video.sentimentScore * 100);
+        return {
           id: i + 1,
-          roundedSentimentScore: Math.round(video.sentimentScore * 100),
-          type: Math.round(video.sentimentScore * 100) < 33 ? 'danger' : Math.round(video.sentimentScore * 100) < 67 ? 'warning' : 'success',
+          roundedSentimentScore: roundedScore,
+          type: roundedScore < 33 ? 'danger' : roundedScore < 67 ? 'warning' : 'success',
           ...video
-        }));
+        }
+      });
   }
 
   get channelSentimentAnalysisProgressBar(): ProgressBar {
