@@ -1,3 +1,18 @@
-img {
+div.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+div.hero-logo {
+  width: 300px;
+}
+
+img.hero-logo {
   max-width: 100%;
+}
+
+div.hero-text {
+  width: 400px;
 }
