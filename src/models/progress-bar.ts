@@ -1,4 +1,4 @@
 export interface ProgressBar {
-  value:number;
-  type:string;
+  value: number;
+  type: string;
 }

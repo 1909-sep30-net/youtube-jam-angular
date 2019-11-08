@@ -1,50 +1,13 @@
 <header>
   <nav class="navbar mb-5">
     <div class="navbar-header">
-      <img
-        alt="Youtube Jam"
-        class="hoverable"
-        src="assets/logo.png"
-        width="60"
-        height="60"
-        placement="bottom"
-        ngbTooltip="Youtube Jam"
-        [routerLink]="['/']">
-      <a
-        class="material-icons-outlined md-light small left-nav"
-        placement="bottom"
-        ngbTooltip="Comments Sentiment"
-        [routerLink]="['/comments-sentiment']">assessment</a>
-      <a
-        *ngIf="auth.loggedIn"
-        class="material-icons-outlined md-light small left-nav"
-        placement="bottom"
-        ngbTooltip="Channel Sentiment"
-        [routerLink]="['/channel-sentiment']">supervised_user_circle</a>
-      <a
-        class="material-icons-outlined md-light small right-nav"
-        placement="bottom"
-        ngbTooltip="Github"
-        [href]="githubRepo"
-        target="_blank">code</a>
-      <a
-        *ngIf="!auth.loggedIn"
-        class="material-icons-outlined md-light small right-nav"
-        placement="bottom"
-        ngbTooltip="Login"
-        (click)="auth.login()">how_to_reg</a>
-      <a
-        *ngIf="auth.loggedIn"
-        class="material-icons-outlined md-light small right-nav"
-        placement="bottom"
-        ngbTooltip="Logout"
-        (click)="auth.logout()">input</a>
-      <a
-        *ngIf="auth.loggedIn"
-        class="material-icons-outlined md-light small right-nav"
-        placement="bottom"
-        ngbTooltip="Profile"
-        [routerLink]="['/profile']">person_pin</a>
+      <img alt="Youtube Jam" class="hoverable" src="assets/full-compressed.png" width="64" height="64" placement="bottom" ngbTooltip="Youtube Jam" [routerLink]="['/']">
+      <a class="material-icons-outlined md-light small left-nav" placement="bottom" ngbTooltip="Comments Sentiment" [routerLink]="['/comments-sentiment']">assessment</a>
+      <a *ngIf="auth.loggedIn" class="material-icons-outlined md-light small left-nav" placement="bottom" ngbTooltip="Channel Sentiment" [routerLink]="['/channel-sentiment']">supervised_user_circle</a>
+      <a class="material-icons-outlined md-light small right-nav" placement="bottom" ngbTooltip="Github" [href]="githubRepo" target="_blank">code</a>
+      <a *ngIf="!auth.loggedIn" class="material-icons-outlined md-light small right-nav" placement="bottom" ngbTooltip="Login" (click)="auth.login()">how_to_reg</a>
+      <a *ngIf="auth.loggedIn" class="material-icons-outlined md-light small right-nav" placement="bottom" ngbTooltip="Logout" (click)="auth.logout()">input</a>
+      <a *ngIf="auth.loggedIn" class="material-icons-outlined md-light small right-nav" placement="bottom" ngbTooltip="Profile" [routerLink]="['/profile']">person_pin</a>
     </div>
   </nav>
 </header>

@@ -2,12 +2,10 @@
   <div *ngIf="authService.userProfile$ | async as profile" id="profile">
     <img id="profilePicture" [src]="profile.picture" [alt]="profile.name">
     <div class="profileItem">
-      <i class="material-icons-outlined md-light">child_care</i>
-      {{profile.name}}
+      <i class="material-icons-outlined md-light">child_care</i> {{profile.name}}
     </div>
     <div class="profileItem">
-      <i class="material-icons-outlined md-light">local_post_office</i>
-      {{profile.email}}
+      <i class="material-icons-outlined md-light">local_post_office</i> {{profile.email}}
     </div>
     <div class="profileItem">
       <div class="input-group mb-3">

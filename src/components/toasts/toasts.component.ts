@@ -7,5 +7,5 @@ import { ToastsService } from '../../services/toasts.service'
   styleUrls: ['./toasts.component.css']
 })
 export class ToastsComponent {
-  constructor(public toastsService: ToastsService) {}
+  constructor(public toastsService: ToastsService) { }
 }

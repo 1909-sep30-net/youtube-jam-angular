@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 export class ToastsService {
   toasts: any[] = [];
 
-  show(header: string, body: string) {
+  show(header: string, body: string): void {
     this.toasts.push({ header, body });
   }
 
-  remove(toast) {
+  remove(toast): void {
     this.toasts = this.toasts.filter(t => t != toast);
   }
 }
