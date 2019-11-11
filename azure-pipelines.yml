@@ -23,7 +23,7 @@ steps:
     cliSources: '.'
     extraProperties: |
       sonar.coverage.exclusions=**/*.spec.ts
-      sonar.typescript.lcov.reportPaths=youtube-jam-angular/coverage/youtube-jam-angular/lcov.info
+      sonar.typescript.lcov.reportPaths= coverage/youtube-jam-angular/lcov.info
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
