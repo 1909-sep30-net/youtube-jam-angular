@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/channel-sentiment-table/channel-sentiment-table.component.ts</title>
+    <title>Code coverage report for src/components/user-sentiment-history/user-sentiment-history.component.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\..\base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/components/channel-sentiment-table</a> channel-sentiment-table.component.ts
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/components/user-sentiment-history</a> user-sentiment-history.component.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/7</span>
+        <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/8</span>
+        <span class='fraction'>2/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>6/7</span>
       </div>
     </div>
     <p class="quiet">
@@ -74,11 +74,7 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -90,9 +86,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -101,45 +98,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, Input } from '@angular/core';
-import { ChannelSentimentAnalysis } from '../../models/channel-sentiment-analysis'
-import { VideoSentimentAnalysisProgressBar } from '../../models/video-sentiment-analysis-progress-bar';
-import { ProgressBar } from 'src/models/progress-bar';
+import { YoutubeUrlService } from 'src/services/youtube-url.service';
+import { CommentsSentimentAnalysis } from 'src/models/comments-sentiment-analysis';
+import { CommentsSentimentAnalysisProgressBar } from 'src/models/comments-sentiment-analysis-progress-bar';
 &nbsp;
 @Component({
-  selector: 'channel-sentiment-table',
-  templateUrl: './channel-sentiment-table.component.html'
+  selector: 'user-sentiment-history',
+  templateUrl: './user-sentiment-history.component.html'
 })
-export class ChannelSentimentTableComponent {
-  @Input() channelSentimentAnalysis: ChannelSentimentAnalysis;
+export class UserSentimentHistoryComponent {
+  @Input() userSentimentHistory: CommentsSentimentAnalysis[];
 &nbsp;
-  get videoList(): VideoSentimentAnalysisProgressBar[] {
-    return this.channelSentimentAnalysis.userVideos
-      .map((video, i) =&gt; {
-        const roundedScore = Math.round(video.sentimentScore * 100);
-        return {
-          id: i + 1,
-          roundedSentimentScore: roundedScore,
-          type: roundedScore &lt; 33 ? <span class="branch-0 cbranch-no" title="branch not covered" >'danger' </span>: roundedScore &lt; 67 ? <span class="branch-0 cbranch-no" title="branch not covered" >'warning' </span>: 'success',
-          ...video
-        }
-      });
-  }
+  constructor(private youtubeUrlService: YoutubeUrlService) { }
 &nbsp;
-  get channelSentimentAnalysisProgressBar(): ProgressBar {
-    return {
-      value: Math.round(this.channelSentimentAnalysis.averageSentiment * 100),
-      type: Math.round(this.channelSentimentAnalysis.averageSentiment * 100) &lt; 33 ? <span class="branch-0 cbranch-no" title="branch not covered" >'danger' </span>: Math.round(this.channelSentimentAnalysis.averageSentiment * 100) &lt; 67 ? 'warning' : <span class="branch-1 cbranch-no" title="branch not covered" >'success'</span>
-    }
+  get parsedUserSentimentHistory(): CommentsSentimentAnalysisProgressBar[] {
+    return this.userSentimentHistory.map(sentiment =&gt; {
+      const roundedScore = Math.round(sentiment.averageSentimentScore * 100);
+      return {
+        youtubeUrl: this.youtubeUrlService.generateYoutubeUrl(sentiment.videoURL),
+        roundedSentimentScore: roundedScore,
+        type: roundedScore &lt; 33 ? <span class="branch-0 cbranch-no" title="branch not covered" >'danger' </span>: roundedScore &lt; 67 ? 'warning' : <span class="branch-1 cbranch-no" title="branch not covered" >'success',</span>
+        ...sentiment
+      }
+    })
+      .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >new Date(b.analysisDate).getTime() - new Date(a.analysisDate).getTime())</span>
+      .slice(0, 5);
   }
 }
 &nbsp;</pre></td></tr>

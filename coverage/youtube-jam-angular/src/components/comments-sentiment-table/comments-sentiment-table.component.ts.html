@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/7</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
@@ -81,7 +81,9 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -95,6 +97,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -122,34 +126,36 @@ import { YoutubeComment } from 'src/models/youtube-comment';
 import { ProgressBar } from 'src/models/progress-bar';
 &nbsp;
 @Component({
-    selector: 'comments-sentiment-table',
-    templateUrl: './comments-sentiment-table.component.html'
+  selector: 'comments-sentiment-table',
+  templateUrl: './comments-sentiment-table.component.html'
 })
 export class CommentsSentimentTableComponent {
-    @Input() commentsSentimentAnalysis:CommentsSentimentAnalysis;
-    page:number = 1;
-    pageSize:number = 5;
+  @Input() commentsSentimentAnalysis: CommentsSentimentAnalysis;
+  page: number = 1;
+  pageSize: number = 5;
 &nbsp;
-    get commentList():YoutubeComment[] {
-        return this.commentsSentimentAnalysis.commentList
-            .map((comment, i) =&gt; (
-                {
-                    id: i + 1,
-                    roundedSentimentScore: Math.round(comment.sentimentScore * 100),
-                    type: Math.round(comment.sentimentScore * 100) &lt; 33 ? <span class="branch-0 cbranch-no" title="branch not covered" >'danger' </span>: Math.round(comment.sentimentScore * 100) &lt; 67 ? <span class="branch-0 cbranch-no" title="branch not covered" >'warning' </span>: 'success',
-                    ...comment
-                }))
-            .slice(
-                (this.page - 1) * this.pageSize,
-                (this.page - 1) * this.pageSize + this.pageSize);
-    }
-&nbsp;
-    get commentsSentimentAnalysisProgressBar():ProgressBar {
+  get commentList(): YoutubeComment[] {
+    return this.commentsSentimentAnalysis.commentList
+      .map((comment, i) =&gt; {
+        const roundedScore = Math.round(comment.sentimentScore * 100);
         return {
-            value: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100),
-            type: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100) &lt; 33 ? <span class="branch-0 cbranch-no" title="branch not covered" >'danger' </span>: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100) &lt; 67 ? 'warning' : <span class="branch-1 cbranch-no" title="branch not covered" >'success'</span>
+          id: i + 1,
+          roundedSentimentScore: roundedScore,
+          type: roundedScore &lt; 33 ? <span class="branch-0 cbranch-no" title="branch not covered" >'danger' </span>: roundedScore &lt; 67 ? <span class="branch-0 cbranch-no" title="branch not covered" >'warning' </span>: 'success',
+          ...comment
         }
+      })
+      .slice(
+        (this.page - 1) * this.pageSize,
+        (this.page - 1) * this.pageSize + this.pageSize);
+  }
+&nbsp;
+  get commentsSentimentAnalysisProgressBar(): ProgressBar {
+    return {
+      value: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100),
+      type: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100) &lt; 33 ? <span class="branch-0 cbranch-no" title="branch not covered" >'danger' </span>: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100) &lt; 67 ? 'warning' : <span class="branch-1 cbranch-no" title="branch not covered" >'success'</span>
     }
+  }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -157,7 +163,7 @@ export class CommentsSentimentTableComponent {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Nov 10 2019 22:23:34 GMT-0600 (Central Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 11 2019 11:36:11 GMT-0600 (Central Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>
