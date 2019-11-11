@@ -22,7 +22,7 @@ describe('AppComponent', () => {
       providers: [
         { provide: AuthService, useValue: authSpy }
       ]
-            
+
     })
     .compileComponents();
   }));

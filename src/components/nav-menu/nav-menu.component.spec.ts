@@ -9,7 +9,7 @@ describe('NavMenuComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ NavMenuComponent ],
-      imports:[RouterTestingModule]
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

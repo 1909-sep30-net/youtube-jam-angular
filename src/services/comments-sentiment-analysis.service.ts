@@ -16,7 +16,7 @@ export class CommentsSentimentAnalysisService {
   getSentiment(videoId: string, maxComments: number): Observable<CommentsSentimentAnalysis> {
     return this.http.get<CommentsSentimentAnalysis>(
       this.videoSentimentEndpoint,
-      { params: new HttpParams().set("videoId", videoId).set("maxComments", maxComments.toString()) }
+      { params: new HttpParams().set('videoId', videoId).set('maxComments', maxComments.toString()) }
     );
   }
 }

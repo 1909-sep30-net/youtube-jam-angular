@@ -11,7 +11,7 @@ describe('ChannelSentimentTableComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ChannelSentimentTableComponent],
-      imports:[NgbModule]
+      imports: [NgbModule]
     })
     .compileComponents();
   }));
@@ -19,24 +19,24 @@ describe('ChannelSentimentTableComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ChannelSentimentTableComponent);
     component = fixture.debugElement.componentInstance;
-    const ChannelSentimentAnalysisinfo : MockChannelSentiment = new MockChannelSentiment();
+    const ChannelSentimentAnalysisinfo: MockChannelSentiment = new MockChannelSentiment();
     component.channelSentimentAnalysis = ChannelSentimentAnalysisinfo;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    
+
     expect(component).toBeTruthy();
   });
 });
 
-class MockChannelSentiment implements ChannelSentimentAnalysis{
+class MockChannelSentiment implements ChannelSentimentAnalysis {
   averageSentiment = 0.5;
   userVideos = [new MockVideoSentiment()];
   analysisDate = new Date();
 }
-class MockVideoSentiment implements VideoSentimentAnalysis{
-  sentimentScore:0.5;
-  videoURL:"";
-  videoTitle:"";
+class MockVideoSentiment implements VideoSentimentAnalysis {
+  sentimentScore: 0.5;
+  videoURL: '';
+  videoTitle: '';
 }

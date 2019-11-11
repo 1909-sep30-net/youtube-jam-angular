@@ -14,7 +14,7 @@ import { UserService } from 'src/services/user.service';
   styleUrls: ['./comments-sentiment.component.css']
 })
 export class CommentsSentimentComponent implements OnInit {
-  display: string = "empty";
+  display = 'empty';
   videoUrl: string;
   safeEmbedUrl: SafeResourceUrl;
   commentsSentimentAnalysis: CommentsSentimentAnalysis;
@@ -38,12 +38,12 @@ export class CommentsSentimentComponent implements OnInit {
     const videoId: string | null = this.youtubeUrlService.parseYoutubeVideoId(this.videoUrl);
     if (videoId !== null) {
       this.toastsService.show('Processing...', 'Processing Youtube Video Sentiment Request');
-      this.display = "loading";
-      this.safeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.sanitizer.sanitize(SecurityContext.URL, "https://www.youtube.com/embed/" + videoId));
+      this.display = 'loading';
+      this.safeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.sanitizer.sanitize(SecurityContext.URL, 'https://www.youtube.com/embed/' + videoId));
       this.commentsSentimentAnalysisService.getSentiment(videoId, maxComments).subscribe(result => {
         this.toastsService.show('Server Side Success: getSentiment', 'Youtube Video Sentiment Succeeded');
         this.commentsSentimentAnalysis = result;
-        this.display = "analysis";
+        this.display = 'analysis';
         this.addUserSentimentHistory();
       }, error => {
         this.toastsService.show('Server Side Error: getSentiment', error.message);

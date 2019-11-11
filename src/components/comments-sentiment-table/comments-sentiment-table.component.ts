@@ -9,8 +9,8 @@ import { ProgressBar } from 'src/models/progress-bar';
 })
 export class CommentsSentimentTableComponent {
   @Input() commentsSentimentAnalysis: CommentsSentimentAnalysis;
-  page: number = 1;
-  pageSize: number = 5;
+  page = 1;
+  pageSize = 5;
 
   get commentList(): YoutubeComment[] {
     return this.commentsSentimentAnalysis.commentList
@@ -21,7 +21,7 @@ export class CommentsSentimentTableComponent {
           roundedSentimentScore: roundedScore,
           type: roundedScore < 33 ? 'danger' : roundedScore < 67 ? 'warning' : 'success',
           ...comment
-        }
+        };
       })
       .slice(
         (this.page - 1) * this.pageSize,
@@ -32,6 +32,6 @@ export class CommentsSentimentTableComponent {
     return {
       value: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100),
       type: Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100) < 33 ? 'danger' : Math.round(this.commentsSentimentAnalysis.averageSentimentScore * 100) < 67 ? 'warning' : 'success'
-    }
+    };
   }
 }

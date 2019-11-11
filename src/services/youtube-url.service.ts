@@ -8,9 +8,9 @@ export class YoutubeUrlService {
 
   parseYoutubeVideoId(urlText: string): string | null {
     try {
-      let url = new URL(urlText);
+      const url = new URL(urlText);
       if (this.validYoutubeUrl(url)) {
-        let desktopVideoId = url.searchParams.get('v');
+        const desktopVideoId = url.searchParams.get('v');
         return desktopVideoId ? desktopVideoId : url.pathname.split('/')[1];
       }
     } catch (_) { }

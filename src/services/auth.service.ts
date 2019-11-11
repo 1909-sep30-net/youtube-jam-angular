@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private static _domain = "dev-3dz-7lk5.auth0.com";
-  private static _clientId = "mKtYKtPG72x71qYJLfVNWO67Oj3HQR88";
+  private static _domain = 'dev-3dz-7lk5.auth0.com';
+  private static _clientId = 'mKtYKtPG72x71qYJLfVNWO67Oj3HQR88';
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({
