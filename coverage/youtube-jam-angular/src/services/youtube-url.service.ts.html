@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/10</span>
+        <span class='fraction'>9/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">63.64% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/11</span>
+        <span class='fraction'>7/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">11.11% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/9</span>
+        <span class='fraction'>8/9</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -86,22 +86,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,27 +116,27 @@
 export class YoutubeUrlService {
   constructor() { }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  parseYoutubeVideoId(</span>urlText: string): string | null {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const url = <span class="cstat-no" title="statement not covered" >new URL(urlText);</span>
-<span class="cstat-no" title="statement not covered" >      if (this.validYoutubeUrl(url)) {</span>
-        const desktopVideoId = <span class="cstat-no" title="statement not covered" >url.searchParams.get('v');</span>
-<span class="cstat-no" title="statement not covered" >        return desktopVideoId ? desktopVideoId : url.pathname.split('/')[1];</span>
+  parseYoutubeVideoId(urlText: string): string | null {
+    try {
+      const url = new URL(urlText);
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.validYoutubeUrl(url)) {
+        const desktopVideoId = url.searchParams.get('v');
+        return desktopVideoId ? desktopVideoId : <span class="branch-1 cbranch-no" title="branch not covered" >url.pathname.split('/')[1];</span>
       }
     } catch (_) { }
 <span class="cstat-no" title="statement not covered" >    return null;</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  generateYoutubeUrl(</span>videoId: string): string {
-<span class="cstat-no" title="statement not covered" >    return 'https://www.youtube.com/watch?v=' + videoId;</span>
+  generateYoutubeUrl(videoId: string): string {
+    return 'https://www.youtube.com/watch?v=' + videoId;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  validYoutubeUrl(</span>url: URL): boolean {
-<span class="cstat-no" title="statement not covered" >    return ((url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com')</span>
+  validYoutubeUrl(url: URL): boolean {
+    return ((url.hostname === 'www.youtube.com' || <span class="branch-1 cbranch-no" title="branch not covered" >url.hostname === 'youtube.com')</span>
       &amp;&amp; url.pathname === '/watch'
       &amp;&amp; url.searchParams.get('v') !== null)
       || ((url.hostname === 'www.youtu.be' || url.hostname === 'youtu.be')
-        &amp;&amp; url.pathname !== '/');
+        &amp;&amp; <span class="branch-6 cbranch-no" title="branch not covered" >url.pathname !== '/')</span>;
   }
 }
 &nbsp;</pre></td></tr>
@@ -145,7 +145,7 @@ export class YoutubeUrlService {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 11 2019 13:42:46 GMT-0600 (Central Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 11 2019 14:14:03 GMT-0600 (Central Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

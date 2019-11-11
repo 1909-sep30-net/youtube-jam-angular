@@ -11,4 +11,10 @@ describe('ChannelSentimentAnalysisService', () => {
     const service: ChannelSentimentAnalysisService = TestBed.get(ChannelSentimentAnalysisService);
     expect(service).toBeTruthy();
   });
+
+  it('get sentiment should get something', () => {
+    const service: ChannelSentimentAnalysisService = TestBed.get(ChannelSentimentAnalysisService);
+    let result = service.getSentiment('MatheMars');
+    expect(result).toBeTruthy();
+  })
 });

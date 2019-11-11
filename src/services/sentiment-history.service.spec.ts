@@ -11,4 +11,9 @@ describe('SentimentHistoryService', () => {
     const service: SentimentHistoryService = TestBed.get(SentimentHistoryService);
     expect(service).toBeTruthy();
   });
+  it('get user sentiment history should get something', () =>{
+    const service: SentimentHistoryService = TestBed.get(SentimentHistoryService);
+    let result = service.getUserSentimentHistory('mtnolasco@up.edu.ph');
+    expect(result).toBeTruthy();
+  });
 });

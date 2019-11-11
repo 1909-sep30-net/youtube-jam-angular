@@ -11,4 +11,9 @@ describe('CommentsSentimentAnalysisService', () => {
     const service: CommentsSentimentAnalysisService = TestBed.get(CommentsSentimentAnalysisService);
     expect(service).toBeTruthy();
   });
+  it('get sentiment should get something', () => {
+    const service: CommentsSentimentAnalysisService = TestBed.get(CommentsSentimentAnalysisService);
+    let result = service.getSentiment('uDJ63G1htBg', 5);
+    expect(result).toBeTruthy();
+  })
 });
