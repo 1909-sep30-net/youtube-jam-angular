@@ -20,7 +20,7 @@ export class UserSentimentHistoryComponent {
         roundedSentimentScore: roundedScore,
         type: roundedScore < 33 ? 'danger' : roundedScore < 67 ? 'warning' : 'success',
         ...sentiment
-      }
+      };
     })
       .sort((a, b) => new Date(b.analysisDate).getTime() - new Date(a.analysisDate).getTime())
       .slice(0, 5);

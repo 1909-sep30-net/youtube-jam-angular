@@ -28,14 +28,14 @@ describe('CommentsSentimentTableComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-class MockCommentAnalysis implements CommentsSentimentAnalysis{
-  averageSentimentScore:number = 0.5;
-  videoURL:string = "hell";
-  analysisDate:Date = new Date();
+class MockCommentAnalysis implements CommentsSentimentAnalysis {
+  averageSentimentScore = 0.5;
+  videoURL = 'hell';
+  analysisDate: Date = new Date();
   commentList = [new MockYoutubeComment()];
 }
-class MockYoutubeComment implements YoutubeComment{
-  authorName ='Marielle Nolasco';
+class MockYoutubeComment implements YoutubeComment {
+  authorName = 'Marielle Nolasco';
   content = 'Hello World';
   sentimentScore = 0.97;
 }

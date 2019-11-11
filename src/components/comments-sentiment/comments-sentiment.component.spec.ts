@@ -15,7 +15,7 @@ import { EMPTY } from 'rxjs/internal/observable/empty';
 describe('CommentsSentimentComponent', () => {
   let component: CommentsSentimentComponent;
   let fixture: ComponentFixture<CommentsSentimentComponent>;
-  const CommentSentimentSpy = jasmine.createSpyObj('CommentsSentimentAnalysisService', 
+  const CommentSentimentSpy = jasmine.createSpyObj('CommentsSentimentAnalysisService',
   ['getSentiment']);
   CommentSentimentSpy.getSentiment.and.returnValue(EMPTY);
   const authSpy = jasmine.createSpyObj('AuthService',
@@ -57,10 +57,10 @@ describe('CommentsSentimentComponent', () => {
   it('should load comment sentiment', () => {
     component.loadCommentsSentiment(5);
     expect(component).toBeTruthy();
-  })
+  });
 });
 @Component({ selector: 'comments-sentiment-table', template: '' })
 class CommentsSentimentTableStubComponent { @Input() commentsSentimentAnalysis: any; }
 
 @Component({selector: 'user-sentiment-history', template: ''})
-class UserSentimentHistoryStubComponent{ @Input() userSentimentHistory: any}
+class UserSentimentHistoryStubComponent { @Input() userSentimentHistory: any;}

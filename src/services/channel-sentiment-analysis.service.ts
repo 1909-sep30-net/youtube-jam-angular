@@ -16,7 +16,7 @@ export class ChannelSentimentAnalysisService {
   getSentiment(channelId: string): Observable<ChannelSentimentAnalysis> {
     return this.http.get<ChannelSentimentAnalysis>(
       this.channelSentimentEndpoint,
-      { params: new HttpParams().set("channel", channelId) }
+      { params: new HttpParams().set('channel', channelId) }
     );
   }
 }

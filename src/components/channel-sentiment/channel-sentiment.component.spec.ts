@@ -24,10 +24,10 @@ describe('ChannelSentimentComponent', () => {
   const channelSentimentAnalysisSpy = jasmine.createSpyObj('ChannelSentimentAnalysisService',
   ['getSentiment']);
   channelSentimentAnalysisSpy.getSentiment.and.returnValue(EMPTY);
-   beforeEach(async(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChannelSentimentComponent,ChannelSentimentTableStubComponent, Loading],
-      imports: [NgbModule,RouterTestingModule, HttpClientTestingModule],
+      declarations: [ ChannelSentimentComponent, ChannelSentimentTableStubComponent, Loading],
+      imports: [NgbModule, RouterTestingModule, HttpClientTestingModule],
       providers: [
         { provide: UserService, useValue: userSpy },
         { provide: ToastsService, useValue: toastSpy },
@@ -46,7 +46,7 @@ describe('ChannelSentimentComponent', () => {
 
   it('should create', () => {
       expect(component).toBeTruthy();
-   
+
   });
   it('should get channel sentiment', () => {
     component.getChannelSentiment('Abc');

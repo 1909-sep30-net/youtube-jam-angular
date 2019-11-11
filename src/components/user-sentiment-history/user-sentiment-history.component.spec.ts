@@ -13,7 +13,7 @@ describe('UserSentimentHistoryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ UserSentimentHistoryComponent ],
-      imports:[NgbModule],
+      imports: [NgbModule],
       providers: [{ provide: YoutubeUrlService, useValue: youtubeURLSpy}]
     })
     .compileComponents();
@@ -31,14 +31,14 @@ describe('UserSentimentHistoryComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-class mockUserSentimentHistory implements CommentsSentimentAnalysis{
-  averageSentimentScore: number = 0.6;
-  videoURL: string = "Abc";
+class mockUserSentimentHistory implements CommentsSentimentAnalysis {
+  averageSentimentScore = 0.6;
+  videoURL = 'Abc';
   analysisDate: Date = new Date();
   commentList: YoutubeComment[] = [new MockYoutubeComment()];
 }
-class MockYoutubeComment implements YoutubeComment{
-  authorName ='Marielle Nolasco';
+class MockYoutubeComment implements YoutubeComment {
+  authorName = 'Marielle Nolasco';
   content = 'Hello World';
   sentimentScore = 0.97;
 }

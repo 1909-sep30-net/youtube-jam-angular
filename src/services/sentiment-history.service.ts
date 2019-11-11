@@ -34,7 +34,7 @@ export class SentimentHistoryService {
   getUserSentimentHistory(email: string): Observable<CommentsSentimentAnalysis[]> {
     return this.http.get<CommentsSentimentAnalysis[]>(
       this.userSentimentHistoryEndpoint,
-      { params: new HttpParams().set("email", email) }
+      { params: new HttpParams().set('email', email) }
     );
   }
 }

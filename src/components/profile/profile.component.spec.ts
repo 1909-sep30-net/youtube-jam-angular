@@ -19,7 +19,7 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ProfileComponent ],
-      imports:[FormsModule, RouterTestingModule],
+      imports: [FormsModule, RouterTestingModule],
       providers: [
         { provide: UserService, useValue: userSpy },
         { provide: ToastsService, useValue: toastSpy },

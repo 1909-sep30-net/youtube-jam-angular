@@ -10,8 +10,8 @@ import { ToastsService } from 'src/services/toasts.service';
   templateUrl: './channel-sentiment.component.html'
 })
 export class ChannelSentimentComponent implements AfterViewInit {
-  channelName: string = "";
-  display: string = "empty";
+  channelName = '';
+  display = 'empty';
   channelSentimentAnalysis: ChannelSentimentAnalysis;
 
   constructor(
@@ -38,11 +38,11 @@ export class ChannelSentimentComponent implements AfterViewInit {
 
   getChannelSentiment(channelId: string) {
     this.toastsService.show('Processing...', 'Processing Youtube Channel Sentiment Request');
-    this.display = "loading";
+    this.display = 'loading';
     this.channelSentimentAnalysisService.getSentiment(channelId).subscribe(result => {
       this.toastsService.show('Server Side Success: getSentiment', 'Youtube Channel Sentiment Succeeded');
       this.channelSentimentAnalysis = result;
-      this.display = "analysis";
+      this.display = 'analysis';
     }, error => {
       this.toastsService.show('Server Side Error: getSentiment', error.message);
     }

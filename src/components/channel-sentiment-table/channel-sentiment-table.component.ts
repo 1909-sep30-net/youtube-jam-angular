@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ChannelSentimentAnalysis } from '../../models/channel-sentiment-analysis'
+import { ChannelSentimentAnalysis } from '../../models/channel-sentiment-analysis';
 import { VideoSentimentAnalysisProgressBar } from '../../models/video-sentiment-analysis-progress-bar';
 import { ProgressBar } from 'src/models/progress-bar';
 
@@ -19,7 +19,7 @@ export class ChannelSentimentTableComponent {
           roundedSentimentScore: roundedScore,
           type: roundedScore < 33 ? 'danger' : roundedScore < 67 ? 'warning' : 'success',
           ...video
-        }
+        };
       });
   }
 
@@ -27,6 +27,6 @@ export class ChannelSentimentTableComponent {
     return {
       value: Math.round(this.channelSentimentAnalysis.averageSentiment * 100),
       type: Math.round(this.channelSentimentAnalysis.averageSentiment * 100) < 33 ? 'danger' : Math.round(this.channelSentimentAnalysis.averageSentiment * 100) < 67 ? 'warning' : 'success'
-    }
+    };
   }
 }

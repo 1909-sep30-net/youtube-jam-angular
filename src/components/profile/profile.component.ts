@@ -10,7 +10,7 @@ import { ToastsService } from '../../services/toasts.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements AfterViewInit {
-  channelName: string = "";
+  channelName = '';
 
   constructor(
     public authService: AuthService,
@@ -34,10 +34,9 @@ export class ProfileComponent implements AfterViewInit {
   }
 
   updateUser(firstName: string, lastName: string, email: string) {
-    if (this.channelName.replace(/\s/g, "") === '') {
+    if (this.channelName.replace(/\s/g, '') === '') {
       this.toastsService.show('Client Side Error', 'Channel Name is Empty');
-    }
-    else {
+    } else {
       this.toastsService.show('Processing...', 'Processing User Update Request');
       const user: User = new User(firstName, lastName, email, this.channelName);
       this.userService.updateUser(user).subscribe(result => {

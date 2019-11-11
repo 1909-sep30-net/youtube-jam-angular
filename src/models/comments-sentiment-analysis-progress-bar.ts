@@ -1,4 +1,4 @@
-import { YoutubeComment } from "./youtube-comment";
+import { YoutubeComment } from './youtube-comment';
 
 export interface CommentsSentimentAnalysisProgressBar {
   youtubeUrl: string;
