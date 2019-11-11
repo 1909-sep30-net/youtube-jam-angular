@@ -13,7 +13,6 @@ describe('ToastsService', () => {
   it('show should show something', () => {
     const service: ToastsService = TestBed.get(ToastsService);
     service.show('hello', 'world');
-    expect(service.toasts).toBeTruthy;
-  })
-  it('')
+    expect(service.toasts).toBeTruthy();
+  });
 });
