@@ -1,6 +1,10 @@
 import { YoutubeComment } from "./youtube-comment";
 
-export interface CommentsSentimentAnalysis {
+export interface UserSentiment {
+  firstName: string;
+  lastName: string;
+  email: string;
+  channelName: string;
   averageSentimentScore: number;
   videoURL: string;
   analysisDate: Date;

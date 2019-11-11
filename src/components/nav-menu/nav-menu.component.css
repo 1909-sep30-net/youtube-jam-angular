@@ -15,22 +15,26 @@
   color: #e9e9e9;
 }
 
-.material-icons.md-24, .material-icons-outlined.small {
+.material-icons.md-24,
+.material-icons-outlined.small {
   font-size: 28px;
   text-decoration: unset;
 }
 
-.material-icons.md-36, .material-icons-outlined.medium {
+.material-icons.md-36,
+.material-icons-outlined.medium {
   font-size: 38px;
   text-decoration: unset;
 }
 
-.material-icons.md-48, .material-icons-outlined.large {
+.material-icons.md-48,
+.material-icons-outlined.large {
   font-size: 48px;
   text-decoration: unset;
 }
 
-img.hoverable, .material-icons-outlined {
+img.hoverable,
+.material-icons-outlined {
   cursor: pointer;
 }
 
@@ -46,6 +50,7 @@ img.hoverable, .material-icons-outlined {
   margin-left: 20px;
 }
 
-a:focus, img:focus {
+a:focus,
+img:focus {
   outline: 0;
 }
