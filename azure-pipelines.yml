@@ -21,15 +21,25 @@ steps:
     cliProjectKey: 'YoutubeJam-Angular'
     cliProjectName: 'YoutubeJam-Angular'
     cliSources: '.'
+    extraProperties: |
+      sonar.coverage.exclusions=**/*.spec.ts
+      sonar.typescript.lcov.reportPaths=$(appDir)/coverage/$(appDir)/lcov.info
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
 - script: |
+    set +e
     npm install
     npx ng  build --prod
   displayName: 'npm install and build'
+
+- script: npx ng test --browsers ChromeHeadless --no-watch --code-coverage
+  displayName: ng test
+
+- script: npm run lint
+  displayName: ng lint
 
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
