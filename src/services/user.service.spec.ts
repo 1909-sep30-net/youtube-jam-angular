@@ -11,4 +11,9 @@ describe('UserService', () => {
     const service: UserService = TestBed.get(UserService);
     expect(service).toBeTruthy();
   });
+  it('get user should get something', () => {
+    const service: UserService = TestBed.get(UserService);
+    let result = service.getUser('mtnolasco@up.edu.ph');
+    expect(result).toBeTruthy();
+  });
 });
