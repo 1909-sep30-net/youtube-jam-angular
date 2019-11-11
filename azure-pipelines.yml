@@ -38,9 +38,6 @@ steps:
 - script: npx ng test --browsers ChromeHeadless --no-watch --code-coverage
   displayName: ng test
 
-- script: npm run lint
-  displayName: ng lint
-
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   displayName: 'Publish code analysis'
